@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reinvented — Purpose-Driven Institutions for a Changing World</title>
+<title>Reinvented — A Method for Building Schools That Actually Work</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
@@ -1006,6 +1006,132 @@ footer {
 .hero-actions { animation: fadeUp 0.7s 0.55s both; }
 .hero-right   { animation: fadeUp 0.7s 0.45s both; }
 
+/* ─── PEOPLE ─── */
+.people-section {
+  background: var(--paper-dim);
+  padding: 100px 0;
+}
+
+.people-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.people-header {
+  margin-bottom: 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--rule);
+}
+
+.person-card {
+  background: white;
+  padding: 44px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s;
+}
+
+.person-card:hover { background: var(--paper); }
+
+.person-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.person-card:hover::after { transform: scaleX(1); }
+
+.person-initials {
+  width: 52px;
+  height: 52px;
+  background: var(--accent-pale);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+
+.person-name {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.person-role {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.person-bio {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.person-linkedin {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.person-linkedin:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.person-linkedin::before {
+  content: 'in';
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  background: var(--ink-soft);
+  color: white;
+  padding: 1px 4px;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+.person-linkedin:hover::before { background: var(--accent); }
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   nav { padding: 16px 24px; }
@@ -1015,7 +1141,8 @@ footer {
   .koivu-intro { grid-template-columns: 1fr; gap: 32px; }
   .koivu-pillars { grid-template-columns: 1fr; }
   .koivu-model { grid-template-columns: 1fr; gap: 32px; padding: 36px 24px; }
-  .projects-header { grid-template-columns: 1fr; gap: 16px; }
+  .people-header { grid-template-columns: 1fr; gap: 16px; }
+  .people-grid { grid-template-columns: 1fr; }
   .collaborate-inner { grid-template-columns: 1fr; gap: 48px; }
   .contact-inner { grid-template-columns: 1fr; gap: 48px; }
   .container, .container--narrow { padding: 0 24px; }
@@ -1033,8 +1160,9 @@ footer {
   <div class="nav-logo">re<span>invented</span>.fi</div>
   <ul class="nav-links">
     <li><a href="#vision">Vision</a></li>
-    <li><a href="#concept">KOIVU</a></li>
+    <li><a href="#method">KOIVU</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#people">People</a></li>
     <li><a href="#contact" class="nav-cta">Get Involved</a></li>
   </ul>
 </nav>
@@ -1049,7 +1177,7 @@ footer {
 
   <div class="hero-content">
     <div class="hero-left">
-      <div class="hero-eyebrow">A Framework for Institutional Renewal</div>
+      <div class="hero-eyebrow">A Method for Building From First Principles</div>
       <h1 class="hero-title">
         What if it were<br>
         <em>invented today?</em>
@@ -1058,38 +1186,39 @@ footer {
         Reinvented is a platform for building purpose-driven institutions from first principles — starting with schools, but extending wherever human development and collective progress meet.
       </p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Become a Collaborator</a>
-        <a href="#concept" class="btn-ghost">Learn the concept</a>
+        <a href="#contact" class="btn-primary">Start the conversation</a>
+        <a href="#method" class="btn-ghost">Understand the method</a>
       </div>
     </div>
 
     <div class="hero-right">
       <div class="hero-quote-block">
         <p class="hero-quote">
-          What if we first decide what kind of world we want to create — and then design institutions to take us there?
+          A school built with KOIVU cannot be transplanted from somewhere else. It must grow from the ground it stands on — and the conversations are how that happens.
         </p>
-        <div class="hero-quote-source">The founding question · Reinvented.fi</div>
+        <div class="hero-quote-source">The KOIVU principle · Reinvented.fi</div>
       </div>
       <div class="hero-stat-row">
         <div class="hero-stat">
           <div class="hero-stat-num">2027</div>
-          <div class="hero-stat-label">First school opens</div>
+          <div class="hero-stat-label">First KOIVU school opens</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-num">KOIVU</div>
-          <div class="hero-stat-label">Core concept framework</div>
+          <div class="hero-stat-label">The creation method</div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="hero-scroll-bar">
-    <span class="scroll-label">Currently active in</span>
+    <span class="scroll-label">Applicable to</span>
     <div class="scroll-tags">
-      <span class="scroll-tag">Education</span>
-      <span class="scroll-tag">Technology</span>
-      <span class="scroll-tag">Character Development</span>
-      <span class="scroll-tag">Jyväskylä, Finland</span>
+      <span class="scroll-tag">Schools</span>
+      <span class="scroll-tag">Companies</span>
+      <span class="scroll-tag">Sports Clubs</span>
+      <span class="scroll-tag">Organisations</span>
+      <span class="scroll-tag">Any Institution</span>
     </div>
   </div>
 </section>
@@ -1098,22 +1227,22 @@ footer {
 <section class="why-section" id="why">
   <div class="why-inner">
     <div class="why-left">
-      <div class="section-label">Why Reinvented</div>
+      <div class="section-label">The Problem</div>
       <h2 class="why-title">
-        We have forgotten<br>
-        <em>what we were<br>building.</em>
+        You cannot import<br>
+        <em>someone else's<br>answer.</em>
       </h2>
     </div>
     <div>
       <div class="why-body">
         <p>
-          Over decades, our institutions have accumulated habits, customs, and structures that once made sense but now stand in the way. Not through malice — through drift. The original purpose gets obscured by the weight of routine.
+          When an institution needs to change, the temptation is to look for a model that works elsewhere and bring it home. But a school — a real school — cannot be transplanted. The moment you try, it arrives rootless. It looks right on paper and fails in the room.
         </p>
         <p>
-          Reinvented exists to ask the uncomfortable question: if your institution were founded today, with everything we now know about human potential, learning, and how societies flourish — what would it look like?
+          The reason is simple: a school that genuinely serves its learners has to be born from the beliefs, culture, and lived experience of the people who will inhabit it. That cannot be purchased, imported, or franchised.
         </p>
         <p>
-          This is not disruption for its own sake. It is a disciplined return to purpose — and then the hard work of building forms that genuinely serve it.
+          What <em>can</em> be shared is the method for creating it. That is what KOIVU is.
         </p>
       </div>
     </div>
@@ -1123,110 +1252,113 @@ footer {
     <div></div>
     <div class="why-right">
       <div class="why-item">
-        <div class="why-item-num">Observation 01</div>
-        <div class="why-item-title">Structures outlive their purposes</div>
-        <div class="why-item-desc">Institutions that once served a clear mission become self-sustaining systems optimising for survival rather than impact.</div>
+        <div class="why-item-num">The core problem</div>
+        <div class="why-item-title">Models are borrowed. Schools must be built.</div>
+        <div class="why-item-desc">Every institution that has ever worked did so because it grew from a specific community's genuine beliefs. Replicating the surface produces none of the depth.</div>
       </div>
       <div class="why-item">
-        <div class="why-item-num">Observation 02</div>
-        <div class="why-item-title">Form follows belief, not fashion</div>
-        <div class="why-item-desc">Sustainable reinvention starts with honest beliefs about human nature, learning, and the role of institutions in civilisation — not with trend or technology.</div>
+        <div class="why-item-num">What actually works</div>
+        <div class="why-item-title">Conversations that excavate what you truly believe</div>
+        <div class="why-item-desc">The KOIVU process starts before any curriculum, structure, or building. It starts with the hardest questions: What is a human being? How do people learn? What is the school actually for?</div>
       </div>
       <div class="why-item">
-        <div class="why-item-num">Observation 03</div>
-        <div class="why-item-title">Every decision must be justifiable</div>
-        <div class="why-item-desc">The test is simple: can each practice, each choice, each structure be traced back to your fundamental beliefs? If not, it must change.</div>
+        <div class="why-item-num">The consequence</div>
+        <div class="why-item-title">Form follows belief — not fashion</div>
+        <div class="why-item-desc">When you know what you believe, every structural decision becomes testable. Does this pedagogy serve our beliefs? Does this schedule? Does this teacher's role? The institution becomes coherent because it has a true foundation.</div>
       </div>
       <div class="why-item">
-        <div class="why-item-num">Observation 04</div>
-        <div class="why-item-title">Implementation is always local</div>
-        <div class="why-item-desc">No model can be imported wholesale. Each reinvention must emerge from dialogue with the people and culture in which it takes root.</div>
+        <div class="why-item-num">The invitation</div>
+        <div class="why-item-title">We help you go through the process</div>
+        <div class="why-item-desc">KOIVU has been tested. The first school built with it opens in 2027. Now the method is available to any community ready to do the work of building something real.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ KOIVU CONCEPT ═══ -->
-<section class="koivu-section" id="concept">
+<!-- ═══ KOIVU METHOD ═══ -->
+<section class="koivu-section" id="method">
   <div class="koivu-inner">
     <div class="koivu-intro">
       <div>
-        <div class="section-label">The KOIVU Concept</div>
+        <div class="section-label">The KOIVU Method</div>
         <h2 class="section-title">
-          A framework, not<br>
-          <em>a prescription</em>
+          A process for<br>building what you<br>
+          <em>actually believe in</em>
         </h2>
       </div>
       <div class="section-body">
         <p>
-          KOIVU is the conceptual framework at the heart of Reinvented. It provides a principled architecture for building learning institutions that cultivate technical competence, ethical maturity, and communal responsibility in parallel.
+          KOIVU is not a curriculum, a brand, or a model to be licensed. It is a <strong>creation method</strong> — a structured process of collective conversation that guides a community through the work of building an institution that is genuinely, irreducibly its own.
         </p>
         <p>
-          It is not a fixed model to be replicated. It is a set of beliefs, a direction of travel, and a built-in mechanism for testing whether every decision remains aligned with founding purpose.
+          It starts before any structure exists. It ends when the institution is coherent enough to sustain and evaluate itself. The first institution created this way is a school — but the process belongs to anyone willing to ask the hard questions.
         </p>
       </div>
     </div>
 
     <div class="koivu-pillars">
       <div class="koivu-pillar">
-        <div class="koivu-pillar-icon">⬛</div>
-        <div class="koivu-pillar-title">Fundamental Beliefs</div>
-        <div class="koivu-pillar-desc">Every institution is built on assumptions about human nature, the world, and what learning means. KOIVU makes these explicit — and holds them accountable.</div>
+        <div class="koivu-pillar-icon">💬</div>
+        <div class="koivu-pillar-title">Collective Conversations</div>
+        <div class="koivu-pillar-desc">The process begins with structured dialogue — not about what the institution will look like, but about what the founding community truly believes: about human beings, about purpose, about the world it exists to serve.</div>
         <div class="koivu-pillar-num">I</div>
       </div>
       <div class="koivu-pillar">
-        <div class="koivu-pillar-icon">◻</div>
-        <div class="koivu-pillar-title">Form as Consequence</div>
-        <div class="koivu-pillar-desc">Structure, pedagogy, and daily practice are not designed for convenience — they are the direct expression of the beliefs underneath. Purpose determines form.</div>
+        <div class="koivu-pillar-icon">⬛</div>
+        <div class="koivu-pillar-title">Beliefs as Foundation</div>
+        <div class="koivu-pillar-desc">The conversations produce something rare: an honest, explicit account of what the community believes. This becomes the foundation everything is built on — and the standard against which every later decision is tested.</div>
         <div class="koivu-pillar-num">II</div>
       </div>
       <div class="koivu-pillar">
         <div class="koivu-pillar-icon">△</div>
-        <div class="koivu-pillar-title">Continuous Evaluation</div>
-        <div class="koivu-pillar-desc">A built-in mechanism tests each decision against the fundamental beliefs and the agreed direction of travel — maintaining coherence while allowing adaptation.</div>
+        <div class="koivu-pillar-title">Form Follows Belief</div>
+        <div class="koivu-pillar-desc">Only once beliefs are clear does the question of form arise. Structure, practice, daily rhythm — each is designed as a direct consequence of what the community believes, not borrowed from what works elsewhere.</div>
         <div class="koivu-pillar-num">III</div>
       </div>
     </div>
 
     <div class="koivu-model">
       <div>
-        <div class="section-label" style="color: var(--accent);">How it works</div>
+        <div class="section-label" style="color: var(--accent);">How the process unfolds</div>
         <h3 class="koivu-model-title">
-          The model is a<br>
-          <em>living architecture</em>
+          The institution is born<br>
+          <em>from the conversations,</em><br>not before them
         </h3>
         <div class="koivu-model-body">
           <p>
-            KOIVU builds learning environments where learners are viewed as inherently capable, and learning is shaped through experience, reflection, and meaningful contribution.
+            KOIVU is facilitated — we bring the questions, the structure, and the experience of having done this before. The answers must come from you and your community.
           </p>
           <p>
-            Teachers act as companions and exemplars — not information dispensers. The community is the curriculum as much as any syllabus.
+            This is not a workshop series. It is a sustained period of collective inquiry during which the founding community discovers what it believes — and what those beliefs demand in practice.
           </p>
           <p>
-            Each implementation emerges through collective dialogue with the people and culture in which it takes root. It is never imposed as a fixed model — and its first application is proof of this.
+            An institution built this way is coherent in a way that imported models never are: every part of it can be traced back to a decision the community made together, consciously, for reasons they can still articulate.
+          </p>
+          <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--muted);">
+            <strong style="color: var(--accent); font-weight: 500;">In practice:</strong> Alkio Atelier Commons — opening in Jyväskylä 2027 — is the first institution created through this process. A school for professional software development, its founding community spent months in KOIVU conversations before a single curricular decision was made. The result is a school that is coherent all the way through.
           </p>
         </div>
       </div>
       <div class="koivu-stack">
         <div class="koivu-stack-item">
-          <div class="koivu-stack-label">Layer 01</div>
-          <div class="koivu-stack-text">Beliefs about human nature, world view, learning</div>
+          <div class="koivu-stack-label">Step 01</div>
+          <div class="koivu-stack-text">Who are we, and what do we believe about human beings?</div>
         </div>
         <div class="koivu-stack-item">
-          <div class="koivu-stack-label">Layer 02</div>
-          <div class="koivu-stack-text">Conceptual model — direction, principles, values</div>
+          <div class="koivu-stack-label">Step 02</div>
+          <div class="koivu-stack-text">What is our understanding of growth, learning, and development?</div>
         </div>
         <div class="koivu-stack-item">
-          <div class="koivu-stack-label">Layer 03</div>
-          <div class="koivu-stack-text">Form — structures, pedagogy, curriculum, environment</div>
+          <div class="koivu-stack-label">Step 03</div>
+          <div class="koivu-stack-text">What world are we building toward, and what is this institution's role in it?</div>
         </div>
         <div class="koivu-stack-item">
-          <div class="koivu-stack-label">Layer 04</div>
-          <div class="koivu-stack-text">Activity — the lived daily experience of learners & teachers</div>
+          <div class="koivu-stack-label">Step 04</div>
+          <div class="koivu-stack-text">What form — structure, practice, environment — do those beliefs demand?</div>
         </div>
         <div class="koivu-stack-item">
-          <div class="koivu-stack-label">Mechanism</div>
-          <div class="koivu-stack-text">Continuous evaluation — does every layer serve the beliefs below it?</div>
+          <div class="koivu-stack-label">Ongoing</div>
+          <div class="koivu-stack-text">Every decision tested against the beliefs. Coherence maintained as the institution grows.</div>
         </div>
       </div>
     </div>
@@ -1238,41 +1370,41 @@ footer {
   <div class="projects-inner">
     <div class="projects-header">
       <div>
-        <div class="section-label">Current Projects</div>
+        <div class="section-label">First Implementation</div>
         <h2 class="section-title">
-          The concept<br>
-          <em>in practice</em>
+          KOIVU in<br>
+          <em>the world</em>
         </h2>
       </div>
       <div class="section-body" style="max-width: 420px; font-size: 15px;">
-        The first implementations of the KOIVU Concept are underway. Each is distinct in form but unified in purpose — and each is an open invitation to collaborate.
+        Alkio Atelier Commons is the first school created through the KOIVU process. It did not adopt a proven model from elsewhere. It was built from within — through conversations that took place over months, with a founding community that did the work of discovering what it believed.
       </div>
     </div>
 
     <!-- Project Card: Alkio Atelier Commons -->
     <div class="project-card">
       <div class="project-card-header">
-        <div class="project-tag">KOIVU Implementation · 01</div>
-        <div class="project-status">Active development</div>
+        <div class="project-tag">First school created with KOIVU</div>
+        <div class="project-status">Active development · Opening 2027</div>
       </div>
       <div class="project-body">
         <h3 class="project-title">Alkio Atelier Commons</h3>
-        <div class="project-subtitle">Digital Craftsmanship School · Alkio-opisto · Jyväskylä</div>
+        <div class="project-subtitle">Digital Craftsmanship School · Alkio-opisto · Jyväskylä, Finland</div>
         <p class="project-desc">
-          A new kind of school for professional software development, built on the belief that technical excellence and human character development are inseparable. Alkio Atelier Commons is a living community of learners — not a classroom of students — where industry professionals teach alongside full-time educators, and where growing as a person is taken as seriously as growing as a developer.
+          A school for professional software development, built from the ground up using the KOIVU creation method. Its founding community spent months in structured conversation — on human nature, on how learning happens, on what the world needs from a school like this — before a single curricular decision was made. What emerged is a school that is coherent all the way through: where growing as a person and growing as a developer are the same project, where teachers are companions rather than content-deliverers, and where the community itself is the primary learning environment.
         </p>
         <div class="project-pillars">
+          <div class="project-pillar">
+            <div class="project-pillar-label">Created through</div>
+            <div class="project-pillar-val">The KOIVU process — conversations to conception to form</div>
+          </div>
           <div class="project-pillar">
             <div class="project-pillar-label">Focus</div>
             <div class="project-pillar-val">Software development, AI & digital craftsmanship</div>
           </div>
           <div class="project-pillar">
-            <div class="project-pillar-label">Duration</div>
+            <div class="project-pillar-label">Duration & Cost</div>
             <div class="project-pillar-val">3 years · Free for students (KELA eligible)</div>
-          </div>
-          <div class="project-pillar">
-            <div class="project-pillar-label">Model</div>
-            <div class="project-pillar-val">Community-based · Industry-integrated · Face-to-face</div>
           </div>
           <div class="project-pillar">
             <div class="project-pillar-label">Opening</div>
@@ -1289,21 +1421,27 @@ footer {
   </div>
 </section>
 
-<!-- ═══ COLLABORATE ═══ -->
+<!-- ═══ THE INVITATION ═══ -->
 <section class="collaborate-section" id="collaborate">
   <div class="collaborate-inner">
     <div>
-      <div class="section-label">Who We Need</div>
+      <div class="section-label">The Invitation</div>
       <h2 class="section-title">
-        Reinvention is<br>
-        <em>a collective act</em>
+        Stop improving<br>
+        <em>the wrong thing.</em>
       </h2>
       <div class="section-body">
         <p>
-          The KOIVU Concept is an open invitation. It does not prescribe a single path to participation — it recognises that different organisations and individuals bring different gifts to the work of building.
+          The KOIVU method is available to any community serious about building an institution that uses everything we know about learning, human development, and what makes a society flourish.
         </p>
         <p>
-          We are looking for collaborators who share the conviction that institutions matter, that human development is the work of a lifetime, and that now is the moment to build something better.
+          It is primarily a method for creating schools — but the same process has been applied to companies, sports clubs, and other organisations that want to build from honest foundations rather than inherited habit.
+        </p>
+        <p>
+          The process is collaborative and takes time. We bring the experience and the questions. You bring the people, the context, and the will to do the work.
+        </p>
+        <p style="font-style: italic; color: var(--accent); margin-top: 20px; font-family: var(--serif); font-size: 18px; line-height: 1.6;">
+          "It cannot be bought. It can be helped to create."
         </p>
       </div>
     </div>
@@ -1313,39 +1451,74 @@ footer {
         <div class="collab-role">
           <div class="collab-role-num">01</div>
           <div>
-            <div class="collab-role-title">Founding Partners</div>
-            <div class="collab-role-desc">Organisations that want to shape what is built — funding a cohort, directing its focus, and becoming part of the school's founding story.</div>
+            <div class="collab-role-title">Communities creating a school</div>
+            <div class="collab-role-desc">You have a conviction that the schools available are not the schools needed. You are ready to build one that genuinely serves your community — from first principles, not from a catalogue.</div>
           </div>
         </div>
         <div class="collab-role">
           <div class="collab-role-num">02</div>
           <div>
-            <div class="collab-role-title">Industry Professionals</div>
-            <div class="collab-role-desc">Senior practitioners who teach, mentor, and bring the reality of their field directly into the learning environment — not as guests, but as companions.</div>
+            <div class="collab-role-title">Organisations reinventing themselves</div>
+            <div class="collab-role-desc">A company, sports club, or other institution that wants to rebuild its culture and practice on an honest foundation — not with a change management programme, but with genuine collective inquiry.</div>
           </div>
         </div>
         <div class="collab-role">
           <div class="collab-role-num">03</div>
           <div>
-            <div class="collab-role-title">Educators & Researchers</div>
-            <div class="collab-role-desc">People who have thought deeply about learning, pedagogy, and institutional design — and want to test those ideas in a genuinely new environment.</div>
+            <div class="collab-role-title">Educators and institution-builders</div>
+            <div class="collab-role-desc">People who have experience building schools and organisations and who recognise in KOIVU a method they have been looking for — and want to help carry it forward.</div>
           </div>
         </div>
         <div class="collab-role">
           <div class="collab-role-num">04</div>
           <div>
-            <div class="collab-role-title">Civic & Cultural Partners</div>
-            <div class="collab-role-desc">Institutions, municipalities, and community organisations that see aligned purpose and want to explore what building together looks like.</div>
-          </div>
-        </div>
-        <div class="collab-role">
-          <div class="collab-role-num">05</div>
-          <div>
-            <div class="collab-role-title">Future Implementers</div>
-            <div class="collab-role-desc">Those who see the KOIVU framework and want to explore what a Reinvented institution could look like in their own context, community, or field.</div>
+            <div class="collab-role-title">Partners for Alkio Atelier Commons</div>
+            <div class="collab-role-desc">Companies, professionals, and civic institutions who want to be part of the first KOIVU school as it opens in Jyväskylä — as founding partners, mentors, or collaborators.</div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PEOPLE ═══ -->
+<section class="people-section" id="people">
+  <div class="people-inner">
+    <div class="people-header">
+      <div>
+        <div class="section-label">The People</div>
+        <h2 class="section-title">
+          Behind<br>
+          <em>Reinvented</em>
+        </h2>
+      </div>
+      <div class="section-body" style="font-size: 15px;">
+        The KOIVU method was developed through years of practice — working with real organisations, facilitating real conversations, and learning what it actually takes to build something coherent from within.
+      </div>
+    </div>
+
+    <div class="people-grid">
+
+      <div class="person-card">
+        <div class="person-initials">MK</div>
+        <div class="person-name">Mika Korhonen</div>
+        <div class="person-role">Creator of KOIVU · CEO, Discovery Street Oy</div>
+        <p class="person-bio">
+          Mika's life work is building new concepts that make existing models obsolete. As the originator of the KOIVU method, he has spent decades developing a practice of institutional creation rooted in honest beliefs rather than borrowed forms. Discovery Street — the platform he founded — exists to create positive impact in society through human-centred innovation. He is the primary facilitator of the KOIVU process.
+        </p>
+        <a href="https://www.linkedin.com/in/mika-korhonen-36a210/" target="_blank" rel="noopener" class="person-linkedin">LinkedIn Profile</a>
+      </div>
+
+      <div class="person-card">
+        <div class="person-initials">MH</div>
+        <div class="person-name">Maria Hyppönen</div>
+        <div class="person-role">Co-creator · Project Lead, Alkio Atelier Commons</div>
+        <p class="person-bio">
+          Maria brings a deep understanding of how institutions function within communities — and what it takes to change them. Her background in business development and civic collaboration in Jyväskylä has shaped her conviction that real change in institutions requires honest conversation, not external prescription. She is a core participant in the KOIVU process and a driving force behind Alkio Atelier Commons.
+        </p>
+        <a href="https://www.linkedin.com/in/maria-hypponen/" target="_blank" rel="noopener" class="person-linkedin">LinkedIn Profile</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1355,14 +1528,13 @@ footer {
   <div class="contact-inner">
     <div>
       <h2 class="contact-title">
-        Let's build<br>
-        <em>something</em><br>
-        that matters.
+        Ready to create<br>
+        <em>your school?</em>
       </h2>
       <p class="contact-desc">
-        If you recognise the question and want to be part of finding the answer — reach out. There is no single door in; tell us who you are and we will find the right path from there.
+        The first step is a conversation — about where you are, what you are trying to build, and whether the KOIVU process is the right path for your community. No commitment required. Just honesty about what you want to create.
       </p>
-      <a href="mailto:hello@reinvented.fi" class="btn-primary" style="display:inline-block;">
+      <a href="/cdn-cgi/l/email-protection#fe969b929291be8c9b9790889b908a9b9ad09897" class="btn-primary" style="display:inline-block;">
         Start a conversation
       </a>
     </div>
@@ -1373,7 +1545,7 @@ footer {
           <div class="contact-card-label">General Enquiries</div>
           <div class="contact-card-name">Reinvented.fi</div>
           <div class="contact-card-role">Partnerships, collaboration, concept enquiries</div>
-          <a href="mailto:hello@reinvented.fi" class="contact-card-link">hello@reinvented.fi</a>
+          <a href="/cdn-cgi/l/email-protection#6c04090000032c1e0905021a0902180908420a05" class="contact-card-link"><span class="__cf_email__" data-cfemail="5f373a3333301f2d3a3631293a312b3a3b713936">[email&#160;protected]</span></a>
         </div>
         <div class="contact-card">
           <div class="contact-card-label">Alkio Atelier Commons</div>
@@ -1385,18 +1557,4 @@ footer {
           <div class="contact-card-label">KOIVU Concept</div>
           <div class="contact-card-name">New Implementation Enquiries</div>
           <div class="contact-card-role">Applying the framework in a new context or community</div>
-          <a href="mailto:koivu@reinvented.fi" class="contact-card-link">koivu@reinvented.fi</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FOOTER ═══ -->
-<footer>
-  <div class="footer-logo">reinvented.fi</div>
-  <div class="footer-meta">Purpose-driven institutions · Finland · 2025–</div>
-</footer>
-
-</body>
-</html>
+          <a href="/cdn-cgi/l/email-protection#02696d6b74774270676b6c74676c7667662c646b" class="contact-card-link"><span class="__cf_email__" data-cfemail="e08b8f899695a09285898e9685
